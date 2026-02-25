@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="module">
+      document.documentElement.style.visibility = 'hidden';
+      async function verifySession() {
+        try {
+          const res = await fetch('https://nilemarket-igqk.onrender.com/refresh', {
+            method: 'GET',
+            credentials: 'include'
+          });
+          if (!res.ok) {
+            window.location.replace('unauthorized.html');
+          } else {
+            window.addEventListener('DOMContentLoaded', () => {
+              document.documentElement.style.visibility = '';
+            });
+            if (document.readyState !== 'loading') {
+              document.documentElement.style.visibility = '';
+            }
+          }
+        } catch (e) {
+          window.location.replace('unauthorized.html');
+        }
+      }
+      verifySession();
+    </script>
+     <title>Nile Market</title>
+     <link rel="stylesheet" href="E-commerse-css-files/Homepage.css">
+     <link rel="stylesheet" href="E-commerse-css-files/mediafiles.css">
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+     <meta http-equiv="Cache-Control" content="no-store" />
+     <meta http-equiv="Pragma" content="no-cache" />
+  </head>
+  <body>
+     
+      <div class="header" id="header1">
+        <div class="left-section">
+          <div class="menu js-menu">
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+          <a href="Homepage.html" class="company-name">
+            <span class="Nile-class">Nile</span>
+            <span class="Market-class">Market</span>
+          </a>
+        </div>
+        <div class="middle-section">
+          <div class="content">
+            <a href="Paymentpage.html">Your products</a>
+            <a href="orders.html">Your orders</a>
+            <a href="track.html">Track your orders</a>
+          </div>
+          <input type="text" class="input1" placeholder="Search">
+          <button class="search-button"><img class="search-image" src="https://nilemarket-igqk.onrender.com/images/icons/search-icon.png"></button>
+          <button class="search-button1 js-search-button1"><img class="search-image" src="https://nilemarket-igqk.onrender.com/images/icons/search-icon.png"></button>
+        </div>
+        <div class="right-section">
+          <div class="cart-icon">
+            <button class="button-size">3</button>
+            <div class="cart">Cart</div>
+          </div>
+          <!--<button class="sign-up-button">Sign up</button>-->
+          <div class="header-more">
+            <button id="header5" class="sign-up-button js-logout-button">Logout</button>
+  
+            <!-- <div class="sl-div solve" id="header6">
+              <button class="first js-first">Sign-up</button>
+              <button class="second js-second">Log-in</button>
+            </div> -->
+          </div>
+        </div>
+       </div>
+       <div class="header2" id="header2">
+        <input type="text" class="input3" placeholder="Search">
+        <button class="search-button3 js-search-button3" id="678"><img class="search-image" src="https://nilemarket-igqk.onrender.com/images/icons/search-icon.png"></button>
+       </div>
+     </div>
+     <div class="menu-part" id="123">
+      <div class="menu-sub-part">
+        <a href="paymentPage.html">Your products</a>
+        <a href="orders.html">Your orders</a>
+        <a href="track.html">Track your orders</a>
+       </div>
+       <div class="times">
+          <div class="times js-times" id="456">&times;</div>
+       </div>
+     </div>
+
+     <main class="main js-main" id="mains">
+       <!-- <div class="product-container">
+        <div class="image-container">
+          <img src="products/adults-plain-cotton-tshirt-2-pack-teal.jpg">
+        </div>
+        <div class="product-description">
+           <div class="product-name">
+            adults-plain-cotton-tshirt-2-pack-teal
+           </div>
+           <div class="product-price">
+             $10.90
+           </div>
+           <div class="Quantity-selection">
+             <select>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+             </select>
+             <button class="add-to-cart">Add-to-cart</button>
+           </div>
+        </div>
+       </div>
+
+       <div class="product-container">
+        <div class="image-container">
+          <img src="products/adults-plain-cotton-tshirt-2-pack-teal.jpg">
+        </div>
+        <div class="product-description">
+           <div class="product-name">
+            adults-plain-cotton-tshirt-2-pack-teal
+           </div>
+           <div class="product-price">
+             $10.90
+           </div>
+           <div class="Quantity-selection">
+             <select>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+             </select>
+             <button class="add-to-cart">Add-to-cart</button>
+           </div>
+        </div>
+       </div>
+
+      <div class="product-container">
+        <div class="image-container">
+          <img src="products/adults-plain-cotton-tshirt-2-pack-teal.jpg">
+        </div>
+        <div class="product-description">
+           <div class="product-name">
+            adults-plain-cotton-tshirt-2-pack-teal
+           </div>
+           <div class="product-price">
+             $10.90
+           </div>
+           <div class="Quantity-selection">
+             <select>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+             </select>
+             <button class="add-to-cart">Add-to-cart</button>
+           </div>
+          </div>
+      </div> -->
+     </main>
+
+    <div class="first-contained">
+      <form method="POST" action="" class="resign animate">
+         <div class="heads">
+          <div href="" class="company-name">
+            <span class="Nile-class">Sign-up</span>
+            <span class="Market-class">for</span>
+            <span class="Nile-class">Nile</span>
+            <span class="Market-class">Market</span>
+          </div>
+           <div class="time">&times;</div>
+         </div>
+
+         <label>Enter Your first name</label>
+         <input class="inputs" Placeholder="First name" type="text" name="firstname" required>
+
+         <label>Enter Your second name</label>
+         <input class="inputs" Placeholder="Second name" type="text" name="Secondname" required>
+
+         <label>Enter your Email</label>
+         <input class="inputs" Placeholder="Email" type="Email" name="Email" required>
+
+         <label>Create your password</label>
+         <input class="inputs" Placeholder="Create your password" type="password" name="psw" required>
+
+         <label>Confirm your password</label>
+         <input class="inputs" Placeholder="Confirm your password" type="password" name="psw" required>
+
+         <label>Fill delivery location</label>
+         <input class="inputs" Placeholder="Delivery location" type="password" name="deliloca" required>
+
+         <div class="sc">
+          <button type="submit" class="submit">Submit</button>
+          <button type="button" class="cancel">Cancel</button>
+         </div>
+        </form>
+    </div>
+
+    <div class="second-contained">
+      <form method="POST" action="" class="log animate">
+         
+        <div class="heads">
+          <div href="" class="company-name">
+            <span class="Nile-class">Log-in</span>
+            <span class="Market-class">for</span>
+            <span class="Nile-class">Nile</span>
+            <span class="Market-class">Market</span>
+          </div>
+           <div class="time js-time">&times;</div>
+         </div>
+
+         <label>Enter your Email</label>
+         <input class="inputs" Placeholder="Email" type="Email" name="Email" required>
+
+         <label>Fill your password</label>
+         <input class="inputs" Placeholder="Create your password" type="password" name="psw" required>
+
+         <label>Fill your password again</label>
+         <input class="inputs" Placeholder="Confirm your password" type="password" name="psw" required>
+
+         <div class="boths">
+          <button type="button" class="login">login</button>
+          <button type="button" class="cancel js-cancelled">Cancel</button>
+         </div>
+        </form>
+    </div>
+     <script type="module">
+       async function verifySession() {
+         try {
+           const res = await fetch('https://nilemarket-igqk.onrender.com/refresh', {
+             method: 'GET',
+             credentials: 'include'
+           });
+           if (!res.ok) {
+             window.location.replace('unauthorized.html');
+           } else {
+             // Wait for DOMContentLoaded before showing body
+             if (document.readyState === 'loading') {
+               window.addEventListener('DOMContentLoaded', () => {
+                 document.body.style.display = '';
+               });
+             } else {
+               document.body.style.display = '';
+             }
+           }
+         } catch (e) {
+           window.location.replace('unauthorized.html');
+         }
+       }
+       verifySession();
+     </script>
+    <script type="module" src="scripts/Homepage/Homepage.js"></script>
+    <script src="scripts/Homepage/marketTextResize.js"></script>
+    <button id="dashboard-btn" style="display:none">Dashboard</button>
+  </body>
+</html>

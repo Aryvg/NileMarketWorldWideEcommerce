@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <script type="module">
+      document.documentElement.style.visibility = 'hidden';
+      async function verifySession() {
+        try {
+          const res = await fetch('https://nilemarket-igqk.onrender.com/refresh', {
+            method: 'GET',
+            credentials: 'include'
+          });
+          if (!res.ok) {
+            window.location.replace('unauthorized.html');
+          } else {
+            window.addEventListener('DOMContentLoaded', () => {
+              document.documentElement.style.visibility = '';
+            });
+            if (document.readyState !== 'loading') {
+              document.documentElement.style.visibility = '';
+            }
+          }
+        } catch (e) {
+          window.location.replace('unauthorized.html');
+        }
+      }
+      verifySession();
+    </script>
+  <title>Nile Market</title>
+  <link rel="stylesheet" href="E-commerse-css-files/Homepage.css">
+  <link rel="stylesheet" href="E-commerse-css-files/paymentpage.css">
+  <link rel="stylesheet" href="E-commerse-css-files/mediafiles.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+  <script type="module">
+    async function verifySession() {
+      try {
+        const res = await fetch('https://nilemarket-igqk.onrender.com/refresh', {
+          method: 'GET',
+          credentials: 'include'
+        });
+        if (!res.ok) {
+          window.location.replace('unauthorized.html');
+        } else {
+          document.body.style.display = '';
+        }
+      } catch (e) {
+        window.location.replace('unauthorized.html');
+      }
+    }
+    verifySession();
+  </script>
+  <!-- empty-cart notification modal -->
+  <div class="empty-cart-modal" id="emptyCartModal">
+    <div class="modal-content">
+      <p>You have not added any product to the cart.</p>
+      <button class="modal-close" id="emptyCartClose">OK</button>
+    </div>
+  </div>
+  <div class="header" id="header1">
+    <div class="left-section">
+      <div class="menu js-menu">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <a href="Homepage.html" class="company-name">
+        <span class="Nile-class">Nile</span>
+        <span class="Market-class">Market</span>
+      </a>
+    </div>
+    <div class="middles-section js-middle-section">
+      <div class="items">Items selected <span class="quan">0</span></div>
+    </div>
+    <div class="right-sections">
+      <div class="header-more">
+        <button class=" place js-place-your-order">Finish your payment</button>
+      </div>
+    </div>
+  </div>
+  <div class="header4" id="565">
+    <div class="itemss">Items selected <span class="quan">3</span></div>
+  </div>
+  <div class="menu-part parts" id="123">
+    <div class="menu-sub-part">
+      <a href="paymentPage.html">Your products</a>
+      <a href="orders.html">Your orders</a>
+      <a href="track.html">Track your orders</a>
+    </div>
+    <div class="times">
+      <div class="times js-times" id="456">&times;</div>
+    </div>
+  </div>
+  <div class="third-contained">
+    <form method="POST" action="" class="log animate">
+      <div class="heads">
+        <!-- <div href="" class="company-name">
+        </div>
+        <div class="time js-time">&times;</div> -->
+      </div>
+        <span class="Nile-class">Almost There!</span>
+          <span class="pay-des-class">Your payment has been completed, but your order is not confirmed yet.
+Please provide your shipping address below and click “Place Your Order” to finalize your purchase.</span>
+      <div class="shipping-address">
+        <div class="sa">Shipping address</div>
+        <div class="shipping-container">
+          <div class="name">Full name</div>
+          <input id="fullNameInput" placeholder="full name">
+          <div class="telebirx-input-msg" id="fullNameMsg"></div>
+        </div>
+        <div class="shipping-container">
+          <div class="name">phone number</div>
+          <input id="shipPhoneInput" placeholder="phone number">
+          <div class="telebirx-input-msg" id="shippingPhoneMsg"></div>
+        </div>
+        <div class="shipping-container">
+          <div class="name">country</div>
+          <select id="countryInput"><option value="">Select country</option></select>
+          <div class="telebirx-input-msg" id="countryMsg"></div>
+        </div>
+        <div class="shipping-container">
+          <div class="name">city</div>
+          <input id="cityInput" placeholder="city">
+          <div class="telebirx-input-msg" id="cityMsg"></div>
+        </div>
+
+        <div class="shipping-container">
+          <div class="name">subCity</div>
+          <input id="subCityInput" placeholder="subCity">
+          <div class="telebirx-input-msg" id="subCityMsg"></div>
+        </div>
+        <div class="shipping-container">
+          <div class="name">House number</div>
+          <input id="houseNoInput" placeholder="house number">
+          <div class="telebirx-input-msg" id="houseNoMsg"></div>
+        </div>
+      </div>
+
+      <div class="boths">
+        <button type="submit" class="login js-next">place your order</button>
+        <button type="button" class="cancel js-cancelled">Cancel</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="fourth-contained">
+    <form method="POST" action="" class="log animate">
+      <div class="heads">
+        <div href="" class="company-name">
+          <span class="Nile-class">Finish</span>
+          <span class="Market-class">your</span>
+          <span class="Market-class">payment</span>
+        </div>
+        <div class="time tm">&times;</div>
+      </div>
+      <div class="statements">
+        <span class="congra">Congratulations!!!</span><br>
+        You have successfully finished your payment and placed your order.
+      </div>
+      <div class="boths">
+        <a href="orders.html" class="login">See your order</a>
+        <button type="button" class="cancel js-cancels">Cancel</button>
+      </div>
+    </form>
+  </div>
+
+
+
+  <div class="telebir-payment">
+    <article class="telebirx-notice">
+      🚀 We accept payment <span>ONLY through Telebirr</span> for fast, secure and trusted transactions.
+    </article>
+
+    <div class="telebirx-container">
+
+      <div class="telebirx-logo">
+        <img src="https://nilemarket-igqk.onrender.com/images/telebirLogo.png" alt="Telebirr Logo">
+      </div>
+
+      <h2>Secure Payment</h2>
+
+      <div class="telebirx-amount-box">
+        Pay <span>ETB 2,500</span>
+      </div>
+
+      <div class="telebirx-form-group">
+        <label>Phone Number</label>
+        <input type="text" id="phone" placeholder="09XXXXXXXX">
+        <div class="telebirx-input-msg" id="phoneMsg"></div>
+      </div>
+
+      <div class="telebirx-form-group">
+        <label>Telebirr PIN</label>
+        <input type="password" id="pin" placeholder="Enter PIN">
+        <div class="telebirx-input-msg" id="pinMsg"></div>
+      </div>
+
+      <button class="telebirx-button js-confirm-payment" >Confirm Payment</button>
+
+      <div class="telebirx-success" id="successMsg">
+        ✔ Payment Successful! Redirecting...
+      </div>
+
+      <div class="telebirx-footer">
+        Protected by 256-bit SSL Encryption
+      </div>
+
+    </div>
+  </div>
+
+
+
+  <!--Use fifth-container to show payment not being successful-->
+  <div class="sixth-contained">
+    <form method="POST" action="" class="log animate">
+
+      <div class="heads">
+        <div href="" class="company-name">
+          <span class="Nile-class">Nile</span>
+          <span class="Market-class">Market</span>
+        </div>
+        <div class="time ts">&times;</div>
+      </div>
+      <div class="delivery-options-container">
+        <div class="delivery-options">
+          <div class="delivery-option">
+            Choose a delivery date for <span class="sna">adults-plain-cotton-tshirt-2-pack-teal</span>
+          </div>
+          <div class="delivery-rate">
+            <div class="delivered-on">
+              <div>
+                <input name="delivery-date" checked class="inputradio" type="radio">
+              </div>
+              <div class="dates">
+                <div class="date">Tuesday, June 21</div>
+                <div class="date-price">FREE</div>
+              </div>
+            </div>
+            <div class="delivered-on">
+              <div>
+                <input class="inputradio" type="radio" name="delivery-date">
+              </div>
+              <div class="dates">
+                <div class="date">Friday, June 28</div>
+                <div class="date-price">4.99</div>
+              </div>
+            </div>
+            <div class="delivered-on">
+              <div>
+                <input name="delivery-date" class="inputradio" type="radio">
+              </div>
+              <div class="dates">
+                <div class="date">Saturday, July 5</div>
+                <div class="date-price">9.99</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="boths">
+        <a href="" class="login js-done">Done</a>
+        <button type="button" class="cancel js-cance">Cancel</button>
+      </div>
+    </form>
+  </div>
+  <div class="fifth-contained">
+    <form method="POST" action="" class="log animate">
+      <div class="heads">
+        <div href="" class="company-name">
+          <span class="Nile-class">Almost There!</span>
+          <span class="Market-class">Your payment has been completed, but your order is not confirmed yet.
+Please provide your shipping address below and click “Place Your Order” to finalize your purchase</span>
+
+          <span class="Market-class">shipping Adress</span>
+        </div>
+        <div class="time tm">&times;</div>
+      </div>
+      <div class="statements">
+        <span class="congra">Opps!!!</span><br>
+        You have entered a wrong verification number.
+      </div>
+      <div class="boths">
+        <a href="" class="login">Try again</a>
+        <button type="button" class="cancel js-cancels">Cancel</button>
+      </div>
+    </form>
+  </div>
+  <main class="payment-details" id="126">
+    <div class="payment-detail">
+      <div class="payment-summary js-payment-summary">
+        Open your payment Summary
+      </div>
+      <div class="payment-description js-payment-description">
+        <div class="pay-item">
+          <div class="ite">
+            Items(3)
+          </div>
+          <div class="itep">
+            $42.75
+          </div>
+        </div>
+        <div class="pay-item">
+          <div class="ite">
+            Price for shipping
+          </div>
+          <div class="itep">
+            $4.99
+          </div>
+        </div>
+        <div class="pay-item">
+          <div class="ite">
+            Total before tax
+          </div>
+          <div class="itep ites">
+            $47.74
+          </div>
+        </div>
+        <div class="underlines"></div>
+        <div class="pay-item">
+          <div class="ite">
+            Estimated Tax(10%)
+          </div>
+          <div class="itep">
+            $4.77
+          </div>
+        </div>
+        <div class="underline"></div>
+        <div class="pay-item">
+          <div class="ite">
+            Order Total
+          </div>
+          <div class="itep">
+            $52.58
+          </div>
+        </div>
+      </div>
+      <div class="pro-container">
+        <!-- <div class="payment-product">
+            <div class="delete">Delete</div>
+            <div class="container">
+             <div class="image-containers">
+               <img src="products/adults-plain-cotton-tshirt-2-pack-teal.jpg">
+              </div>
+              <div class="payments-product" style="background-color:rgb(204, 204, 204);">
+               <div class="payment-product-details">
+                 <div class="delivery-date">
+                   Reaching you on Tuesday, June 21
+                 </div>
+                 <div class="product-name">
+                   adults-plain-cotton-tshirt-2-pack-teal
+                  </div>
+                  <div class="product-price">
+                    $10.90
+                  </div>
+                  <div class="product-quantity">
+                    Quantity:<span class="quant">2</span>
+                 </div>
+                 <div class="delivery-button">
+                  <button class="deliverbut js-delivery-date">Choose delivery date</button>
+                 </div>
+                </div>
+              </div>
+            </div>
+          </div> -->
+      </div>
+    </div>
+  </main>
+  <script type="module" src="scripts/paymentpage/paymentpage.js"></script>
+  <script src="scripts/paymentpage/marketTextResize.js"></script>
+</body>
+
+</html>

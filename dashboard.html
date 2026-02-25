@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Responsive Admin Dashboard</title>
+<link rel="stylesheet" href="E-commerse-css-files/dashboard.css">
+</head>
+
+<body>
+
+<header>Admin Dashboard</header>
+
+<div class="container">
+
+<div id="homePage">
+  <div class="cards">
+    <div class="card" id="usersCard" style="display:none;">
+      <div style="display:flex;align-items:center;justify-content:center;gap:12px;">
+        <div>
+          <!-- value filled via script; leave blank so we never flash 0 -->
+          <h2 id="userCount"></h2>
+          <p>Registered Users</p>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;">
+          <span id="newUserCount" style="background:#1cc88a;color:white;font-weight:bold;padding:4px 10px;border-radius:16px;font-size:16px;min-width:32px;text-align:center;box-shadow:0 2px 8px rgba(28,200,138,0.18);">0</span>
+          <span style="font-size:13px;color:#1cc88a;margin-top:2px;">New Users</span>
+        </div>
+      </div>
+    </div>
+    <div class="card" id="productsCard">
+      <div style="display:flex;align-items:center;justify-content:center;gap:12px;">
+        <div>
+          <h2 id="productCount">0</h2>
+          <p>Products Added</p>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;">
+          <span id="newProductCount" style="background:#1cc88a;color:white;font-weight:bold;padding:4px 10px;border-radius:16px;font-size:16px;min-width:32px;text-align:center;box-shadow:0 2px 8px rgba(28,200,138,0.18);">0</span>
+          <span style="font-size:13px;color:#1cc88a;margin-top:2px;">New Products</span>
+        </div>
+      </div>
+    </div>
+    <div class="card" id="ordersCard">
+      <div style="display:flex;align-items:center;justify-content:center;gap:12px;">
+        <div>
+          <h2 id="orderCount">0</h2>
+          <p>Orders Made</p>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;">
+          <span id="newOrderCount" style="background:#1cc88a;color:white;font-weight:bold;padding:4px 10px;border-radius:16px;font-size:16px;min-width:32px;text-align:center;box-shadow:0 2px 8px rgba(28,200,138,0.18);">0</span>
+          <span style="font-size:13px;color:#1cc88a;margin-top:2px;">New Orders</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- immediately populate stored counts before main script runs -->
+<script>
+  (function(){
+    const prodEl = document.getElementById('productCount');
+    const ordEl = document.getElementById('orderCount');
+    const userEl = document.getElementById('userCount');
+    const newProdEl = document.getElementById('newProductCount');
+    const newUserEl = document.getElementById('newUserCount');
+
+    const prod = Number(localStorage.getItem('lastProductCount'));
+    const ord = localStorage.getItem('lastOrderCount');
+    const usr = Number(localStorage.getItem('lastUserCount'));
+
+    if (prod !== null && prodEl) prodEl.innerText = prod;
+    if (ord !== null && ordEl) ordEl.innerText = ord;
+    if (usr !== null && userEl) userEl.innerText = usr;
+
+    // compute badges only if we know user
+    const user = localStorage.getItem('dashboardUser');
+    if (user && newProdEl) {
+      const lastViewedProd = Number(localStorage.getItem('lastViewedProductCount_' + user) || 0);
+      const diff = prod - lastViewedProd;
+      newProdEl.innerText = diff > 0 ? diff : 0;
+    }
+    if (user && newUserEl) {
+      const lastViewedUsr = Number(localStorage.getItem('lastViewedUserCount') || 0);
+      const diff = usr - lastViewedUsr;
+      newUserEl.innerText = diff > 0 ? diff : 0;
+    }
+  })();
+</script>
+
+<!-- USERS -->
+<div id="usersPage" class="hidden">
+<button class="backBtn" id="backUsers">⬅ Back</button>
+<h2>Registered Users</h2>
+<input type="text" id="userSearch" class="searchBar" placeholder="Search by username...">
+<div class="tableWrapper">
+<table>
+<thead>
+<tr>
+<th>Username</th>
+<th>Email</th>
+<th>Age</th>
+<th>Job</th>
+<th>Country</th>
+<th>Password</th>
+<th>Status</th>
+<th>Role</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody id="usersTable"></tbody>
+</table>
+</div>
+</div>
+
+<!-- PRODUCTS -->
+<div id="productsPage" class="hidden">
+<button class="backBtn" id="backProducts">⬅ Back</button>
+<h2>Add Product</h2>
+<input type="file" id="productImage">
+<input type="text" id="productName" placeholder="Product Name">
+<input type="number" id="productPrice" placeholder="Price (cents)">
+<button class="addBtn" id="addProductBtn">Add Product</button>
+
+<h3 style="margin-top:20px;">Search Products</h3>
+<input type="text" id="productSearch" class="searchBar" placeholder="Search by product name...">
+<div id="productList"></div>
+</div>
+
+<!-- ORDERS -->
+<div id="ordersPage" class="hidden">
+<button class="backBtn" id="backOrders">⬅ Back</button>
+<h2>Orders</h2>
+<input type="text" id="orderSearch" class="searchBar" placeholder="Search by username...">
+<div id="orderList"></div>
+</div>
+
+</div>
+
+<script src="scripts/dashboard/dashboard.js"></script>
+</body>
+</html>

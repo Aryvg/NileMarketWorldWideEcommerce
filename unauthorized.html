@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Unauthorized</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { 
+            display: flex;
+            /* allow page to expand if viewport is short so items don’t get cut off */
+            min-height: 100vh;
+            height: auto;
+            align-items: center;
+            justify-content: center;
+            font-family: "Segoe UI", sans-serif;
+            margin: 0;
+            background: #f5f5f5;
+        }
+        .message {
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background: #fff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        a {
+            display: inline-block;
+            margin-top: 12px;
+            text-decoration: none;
+            color: #2575fc;
+        }
+    </style>
+</head>
+<body>
+    <div class="message">
+        <h1>Unauthorized</h1>
+        <p>You must be logged in to access that page.</p>
+        <a href="index.html">Go to login page</a>
+    </div>
+    <script>
+        // if the user somehow ends up here and hits back, send them back to login rather than homepage
+        window.addEventListener('DOMContentLoaded', () => {
+            history.pushState(null, '', location.href);
+            window.addEventListener('popstate', () => {
+                window.location.href = 'index.html';
+            });
+        });
+    </script>
+</body>
+</html>

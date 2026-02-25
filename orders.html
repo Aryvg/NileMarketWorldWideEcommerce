@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+     <title>Nile Market</title>
+     <link rel="stylesheet" href="E-commerse-css-files/Homepage.css">
+     <link rel="stylesheet" href="E-commerse-css-files/orders.css">
+     <link rel="stylesheet" href="E-commerse-css-files/mediafiles.css">
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <head>
+    <script type="module">
+      document.documentElement.style.visibility = 'hidden';
+      async function verifySession() {
+        try {
+          const res = await fetch('https://nilemarket-igqk.onrender.com/refresh', {
+            method: 'GET',
+            credentials: 'include'
+          });
+          if (!res.ok) {
+            window.location.replace('unauthorized.html');
+          } else {
+            window.addEventListener('DOMContentLoaded', () => {
+              document.documentElement.style.visibility = '';
+            });
+            if (document.readyState !== 'loading') {
+              document.documentElement.style.visibility = '';
+            }
+          }
+        } catch (e) {
+          window.location.replace('unauthorized.html');
+        }
+      }
+      verifySession();
+    </script>
+      <div class="header" id="header1">
+        <div class="left-section">
+          <div class="menu js-menu">
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+          <a href="Homepage.html" class="company-name">
+            <span class="Nile-class">Nile</span>
+            <span class="Market-class">Market</span>
+          </a>
+        </div>
+        <div class="middle-section">
+          <div class="content">
+            <a href="paymentPage.html">Your products</a>
+            <a href="">Your orders</a>
+            <a href="track.html">Track your orders</a>
+          </div>
+          <input type="text" class="input1" placeholder="Search">
+          <button class="search-button"><img class="search-image" src="https://nilemarket-igqk.onrender.com/images/icons/search-icon.png"></button>
+          <button class="search-button1 js-search-button1"><img class="search-image" src="https://nilemarket-igqk.onrender.com/images/icons/search-icon.png"></button>
+        </div>
+        <div class="right-section">
+          <div class="cart-icon">
+            <button class="button-size">0</button>
+            <div class="cart">Cart</div>
+          </div>
+          <div class="header-more">
+            <button id="header5" class="sign-up-button js-sign-up-button">More</button>
+            <div class="sl-div solve" id="header6">
+              <button class="firsts js-first">A total of <span class="t">3</span> items bought</button>
+              <button class="seconds js-second">A total of <span class="t">$1000</span> spent</button>
+            </div>
+          </div>
+        </div>
+       </div>
+       <div class="header2" id="header2">
+        <input type="text" class="input3" placeholder="Search">
+        <button class="search-button3 js-search-button3" id="678"><img class="search-image" src="https://nilemarket-igqk.onrender.com/images/icons/search-icon.png"></button>
+       </div>
+     </div>
+     <div class="menu-part" id="123">
+      <div class="menu-sub-part">
+        <a href="paymentPage.html">Your products</a>
+        <a href="">Your orders</a>
+        <a href="track.html">Track your orders</a>
+       </div>
+       <div class="times">
+          <div class="times js-times" id="456">&times;</div>
+       </div>
+     </div>
+     <div class="order-container">
+       <div class="your-orders">Orders</div>
+       <div class="order1 js-order">
+        
+       </div>
+     </div>
+     <script type="module" src="scripts/orders/Orders.js"></script>
+  </body>
+</html>
