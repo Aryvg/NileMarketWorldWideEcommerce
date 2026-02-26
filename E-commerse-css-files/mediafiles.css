@@ -433,6 +433,11 @@
     left:140px;
   }
 }
+@media (max-width:357px){
+  .Market-class{
+    display:none;
+  }
+}
 @media (max-width:334px){
   .cart-icon{
     position:absolute;
